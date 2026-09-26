@@ -3,12 +3,14 @@
 :root {
   --font1: "Roboto", sans-serif;
   --bgColor: linear-gradient(to right, #8ebea3 0%, #c7dbcb 100%);
+  --boxShadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   --letterSpacing: 0.7px;
   --color1: #101010;
   --color2: #303030;
   --color3: #e0e0e0;
   --color4: #46a882;
   --color5: #8ebea3;
+  --color6: #606060;
   --copyColor1: #404040;
   --copyColor2: #666666;
   --copyColor3: #808080;
@@ -78,6 +80,8 @@ h1 {
   font-size: 14px;
   letter-spacing: var(--letterSpacing);
   padding-left: 8px;
+  text-align: left;
+  overflow: auto;
 }
 
 #toggleText {
@@ -107,7 +111,7 @@ h1 {
 .switch {
   position: relative;
   display: inline-block;
-  width: 60px; /* switch width */
+  min-width: 60px; /* switch width */
   height: 30px; /* switch height */
 }
 
@@ -156,6 +160,11 @@ input:checked + .slider {
   background-color: var(--color4);
 }
 
+input:checked + .slider:hover {
+  background-color: var(--color4);
+  box-shadow: var(--boxShadow);
+}
+
 /* 
 NOTE: INDICATOR TRAVEL WHEN CHECKED -- input:checked + .slider:before ↴
 switch width (60px) - indicator width (18px) - starting postion (6px * 2) 
@@ -176,6 +185,32 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%; /* indicator radius */
+}
+
+/* .slider.round:hover:before, */
+.slider.round:hover {
+  box-shadow: var(--boxShadow);
+}
+
+.resetBtn {
+  font-size: 14px;
+  text-align: left;
+  color: var(--color1);
+  padding: 4px 12px;
+  background-color: var(--color5);
+  border: 1px solid var(--color6);
+  letter-spacing: var(--letterSpacing);
+  width: fit-content;
+  margin-top: 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease-in;
+}
+
+.resetBtn:hover {
+  background-color: var(--color4);
+  color: #e0e0e0;
+  box-shadow: var(--boxShadow);
 }
 
 .copy {

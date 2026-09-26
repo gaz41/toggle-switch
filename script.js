@@ -7,9 +7,9 @@ let statusText2 = document.getElementById("status2");
 let statusText3 = document.getElementById("status3");
 
 // Initialize status messages for each toggle
-statusText1.innerHTML = "toggle 1 is OFF"; // initial message
-statusText2.innerHTML = "toggle 2 is OFF"; // initial message
-statusText3.innerHTML = "toggle 3 is OFF"; // initial message
+statusText1.innerHTML = "toggle 1 ON (default)"; // initial message
+statusText2.innerHTML = "toggle 2 OFF"; // initial message
+statusText3.innerHTML = "toggle 3 OFF"; // initial message
 
 // Toggle state variables
 const toggleObj = {
@@ -29,17 +29,42 @@ const displayState = () => {
 // Display area for toggle status
 const display = document.getElementById("toggleText");
 const state = document.getElementById("toggleState");
+const reset = document.getElementById("resetBtn");
 
 display.innerHTML = "Click on a toggle switch"; // Initial message
 displayState(); // Set initial state display
 
+// Function to reset toggle switches to their default states
+const resetCheckboxes = () => {
+  // Reset toggle states
+  toggleObj.toggle1 = true;
+  toggleObj.toggle2 = false;
+  toggleObj.toggle3 = false;
+
+  // Update toggle elements in the DOM
+  toggleInput1.checked = toggleObj.toggle1;
+  toggleInput2.checked = toggleObj.toggle2;
+  toggleInput3.checked = toggleObj.toggle3;
+
+  // Update status text for each checkbox
+  statusText1.innerHTML = `toggle 1 ON (default)`;
+  statusText2.innerHTML = `toggle 2 OFF`;
+  statusText3.innerHTML = `toggle 3 OFF`;
+
+  display.innerHTML = "Click on a toggle switch"; // Reset display message
+  displayState(); // Refresh the state display
+};
+
+// Event listener for reset button
+reset.addEventListener("click", resetCheckboxes);
+
 // Event listener for toggle 1
 toggleInput1.addEventListener("change", function () {
   toggleObj.toggle1 = this.checked; // Update toggle state
-  statusText1.innerHTML = `toggle 1 is ${toggleObj.toggle1 ? "ON" : "OFF"}`; // Update status text
+  statusText1.innerHTML = `toggle 1 ${toggleObj.toggle1 ? "ON" : "OFF"}`; // Update status text
 
   // Update display based on toggle state
-  display.innerHTML = `toggle 1 is switched ${toggleObj.toggle1 ? "ON" : "OFF"}`;
+  display.innerHTML = `toggle 1 switched ${toggleObj.toggle1 ? "ON" : "OFF"}`;
   display.style.color = toggleObj.toggle1 ? `#000000` : `#606060`;
   display.style.textDecorationColor = toggleObj.toggle1 ? `#000000` : `#606060`;
   displayState(); // Refresh the state display
@@ -48,10 +73,10 @@ toggleInput1.addEventListener("change", function () {
 // Event listener for toggle 2
 toggleInput2.addEventListener("change", function () {
   toggleObj.toggle2 = this.checked; // Update toggle state
-  statusText2.innerHTML = `toggle 2 is ${toggleObj.toggle2 ? "ON" : "OFF"}`; // Update status text
+  statusText2.innerHTML = `toggle 2 ${toggleObj.toggle2 ? "ON" : "OFF"}`; // Update status text
 
   // Update display based on toggle state
-  display.innerHTML = `toggle 2 is switched ${toggleObj.toggle2 ? "ON" : "OFF"}`;
+  display.innerHTML = `toggle 2 switched ${toggleObj.toggle2 ? "ON" : "OFF"}`;
   display.style.color = toggleObj.toggle2 ? `#000000` : `#606060`;
   display.style.textDecorationColor = toggleObj.toggle2 ? `#000000` : `#606060`;
   displayState(); // Refresh the state display
@@ -60,10 +85,10 @@ toggleInput2.addEventListener("change", function () {
 // Event listener for toggle 3
 toggleInput3.addEventListener("change", function () {
   toggleObj.toggle3 = this.checked; // Update toggle state
-  statusText3.innerHTML = `toggle 3 is ${toggleObj.toggle3 ? "ON" : "OFF"}`; // Update status text
+  statusText3.innerHTML = `toggle 3 ${toggleObj.toggle3 ? "ON" : "OFF"}`; // Update status text
 
   // Update display based on toggle state
-  display.innerHTML = `toggle 3 is switched ${toggleObj.toggle3 ? "ON" : "OFF"}`;
+  display.innerHTML = `toggle 3 switched ${toggleObj.toggle3 ? "ON" : "OFF"}`;
   display.style.color = toggleObj.toggle3 ? `#000000` : `#606060`;
   display.style.textDecorationColor = toggleObj.toggle3 ? `#000000` : `#606060`;
   displayState(); // Refresh the state display
