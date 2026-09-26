@@ -7,7 +7,8 @@ let statusText2 = document.getElementById("status2");
 let statusText3 = document.getElementById("status3");
 
 // Initialize status messages for each toggle
-statusText1.innerHTML = "toggle 1 ON (default)"; // initial message
+statusText1.innerHTML =
+  'toggle 1 ON <span class="defaultText">(default)</span>'; // initial message
 statusText2.innerHTML = "toggle 2 OFF"; // initial message
 statusText3.innerHTML = "toggle 3 OFF"; // initial message
 
@@ -47,9 +48,10 @@ const resetCheckboxes = () => {
   toggleInput3.checked = toggleObj.toggle3;
 
   // Update status text for each checkbox
-  statusText1.innerHTML = `toggle 1 ON (default)`;
-  statusText2.innerHTML = `toggle 2 OFF`;
-  statusText3.innerHTML = `toggle 3 OFF`;
+  statusText1.innerHTML =
+    'toggle 1 ON <span class="defaultText">(default)</span>';
+  statusText2.innerHTML = "toggle 2 OFF";
+  statusText3.innerHTML = "toggle 3 OFF";
 
   display.innerHTML = "Click on a toggle switch"; // Reset display message
   displayState(); // Refresh the state display

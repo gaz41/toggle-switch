@@ -27,7 +27,6 @@
 body {
   font-family: var(--font1);
   background: var(--bgColor);
-  text-align: center;
 }
 
 .container {
@@ -192,6 +191,12 @@ input:checked + .slider:before {
   box-shadow: var(--boxShadow);
 }
 
+.defaultText {
+  display: inline;
+  color: var(--color6);
+  font-size: 12px;
+}
+
 .resetBtn {
   font-size: 14px;
   text-align: left;
@@ -247,6 +252,10 @@ input:checked + .slider:before {
   }
 
   .copy2 {
+    display: block;
+  }
+
+  .defaultText {
     display: block;
   }
 }
