@@ -1,0 +1,217 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+:root {
+  --font1: "Roboto", sans-serif;
+  --bgColor: linear-gradient(to right, #8ebea3 0%, #c7dbcb 100%);
+  --letterSpacing: 0.7px;
+  --color1: #101010;
+  --color2: #303030;
+  --color3: #e0e0e0;
+  --color4: #46a882;
+  --color5: #8ebea3;
+  --copyColor1: #404040;
+  --copyColor2: #666666;
+  --copyColor3: #808080;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font1);
+  background: var(--bgColor);
+  text-align: center;
+}
+
+.container {
+  min-height: 100dvh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  place-content: center;
+}
+
+h1 {
+  color: var(--color1);
+  font-size: 20px;
+  font-weight: 400;
+  text-align: left;
+  margin: 30px 0;
+  letter-spacing: var(--letterSpacing);
+}
+
+.toggleContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: left;
+  max-width: 600px;
+  background-color: var(--color3);
+  border-radius: 8px;
+}
+
+.toggles {
+  min-width: 220px;
+  padding: 20px;
+}
+
+.toggle-description {
+  text-align: left;
+  letter-spacing: var(--letterSpacing);
+  padding-bottom: 10px;
+}
+
+.toggleInput {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+}
+
+#status1,
+#status2,
+#status3 {
+  color: var(--color2);
+  font-size: 14px;
+  letter-spacing: var(--letterSpacing);
+  padding-left: 8px;
+}
+
+#toggleText {
+  color: var(--color2);
+  font-size: 14px;
+  text-align: left;
+  letter-spacing: var(--letterSpacing);
+  text-decoration: underline dotted;
+  text-decoration-color: var(--color2);
+  text-underline-offset: 8px;
+  margin-top: 30px;
+}
+
+#toggleState {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: left;
+  font-size: 14px;
+  color: var(--color1);
+  letter-spacing: var(--letterSpacing);
+  line-height: 1.8;
+  margin-top: 30px;
+}
+
+/* TOGGLE SWITCH */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px; /* switch width */
+  height: 30px; /* switch height */
+}
+
+.switch input {
+  opacity: 0; /* Hide default HTML checkbox */
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--color5); /* background color when OFF (UNCHECKED) */
+  -webkit-transition: 0.4s;
+  transition: 0.4s; /* Transition for background color */
+}
+
+/* 
+NOTE: INDICATOR STARTING POSITION -- slider:before ↴
+switch height = 30px
+indicator height/width = 18px
+30-18 = 12
+so, indicator must be positioned 12/2 = 6px from left and bottom 
+left: 6px; 
+bottom: 6px;
+*/
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px; /* indicator height */
+  width: 18px; /* indicator width */
+  left: 6px; /* indicator starting position from left */
+  bottom: 6px; /* indicator starting position from bottom */
+  background-color: var(--color3); /* indicator background color */
+  -webkit-transition: 0.4s;
+  transition: 0.4s; /* Transition for indicator movement */
+}
+
+/* slider background color when ON (CHECKED) */
+input:checked + .slider {
+  background-color: var(--color4);
+}
+
+/* 
+NOTE: INDICATOR TRAVEL WHEN CHECKED -- input:checked + .slider:before ↴
+switch width (60px) - indicator width (18px) - starting postion (6px * 2) 
+so, 60-18-(6*2) = 30
+transform: translateX(30px);
+*/
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(30px);
+  -ms-transform: translateX(30px);
+  transform: translateX(30px); /* Indicator travel when ON (CHECKED) */
+}
+
+/* ROUNDED TOGGLE SWITCH -- omit for SQUARE TOGGLE SWITCH  */
+.slider.round {
+  border-radius: 30px; /* switch radius, same as switch height */
+}
+
+.slider.round:before {
+  border-radius: 50%; /* indicator radius */
+}
+
+.copy {
+  color: var(--copyColor1);
+  font-size: 14px;
+  text-align: center;
+  letter-spacing: var(--letterSpacing);
+  padding: 20px 0;
+  margin-top: 50px;
+}
+
+.copy a {
+  color: var(--copyColor1);
+  text-decoration: underline dotted;
+  text-decoration-color: var(--copyColor2);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 6px;
+}
+
+.copy a:hover {
+  color: var(--copyColor1);
+  text-decoration-color: var(--copyColor3);
+}
+
+@media only screen and (max-width: 390px) {
+  .copy {
+    padding: 8px 0;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .copy a {
+    text-underline-offset: 4px;
+  }
+
+  .copy2 {
+    display: block;
+  }
+}

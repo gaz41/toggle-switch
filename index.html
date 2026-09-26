@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Toggle switch</title>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Toggle Switch</h1>
+      </header>
+
+      <main>
+        <div class="toggleContainer">
+          <div class="toggles">
+            <div class="toggle-description">Click a toggle switch</div>
+
+            <!-- TOGGLE SWITCH 1 -->
+            <div class="toggleInput">
+              <label class="switch">
+                <input type="checkbox" id="toggleInput1" />
+                <span class="slider round"></span>
+              </label>
+              <div id="status1"></div>
+            </div>
+
+            <!-- TOGGLE SWITCH 2 -->
+            <div class="toggleInput">
+              <label class="switch">
+                <input type="checkbox" id="toggleInput2" />
+                <span class="slider round"></span>
+              </label>
+              <div id="status2"></div>
+            </div>
+
+            <!-- TOGGLE SWITCH 3 -->
+            <div class="toggleInput">
+              <label class="switch">
+                <input type="checkbox" id="toggleInput3" />
+                <span class="slider round"></span>
+              </label>
+              <div id="status3"></div>
+            </div>
+
+            <!-- DISPLAY RESULT -->
+            <div id="toggleText"></div>
+            <div id="toggleState"></div>
+          </div>
+        </div>
+      </main>
+
+      <!-- COPYRIGHT NOTICE -->
+      <footer>
+        <div id="copy" class="copy"></div>
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
